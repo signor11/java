@@ -1,0 +1,42 @@
+package medicine;
+
+
+public class Pharmacist{	
+	
+    	private int money;  //약사 돈
+    	private int cnt;    //약의 수
+    	private CONTAC600 contac; //콘택600
+    	
+    	public final int CONTAC600_PRICE;                                  //상수는 static final 붙어야 함
+    	
+		public Pharmacist(int money, int cnt, int CONTAC600_PRICE) {
+			this.money = money;
+			this.cnt=cnt;
+			//contac = null;
+			this.CONTAC600_PRICE=CONTAC600_PRICE;
+		}		
+		
+		public void menuExplain(){
+			System.out.print("손님, 종합감기약 몇개 드릴까요? 1개에 "
+		                     +CONTAC600_PRICE+"원입니다. :" );
+		}
+		
+    	public CONTAC600 saleCONTAC600(int m, int c){ 
+    		money = money + m; //약사의 돈 + 받은 돈
+    		cnt = cnt - c;     //약사의 약의 수 - 판매한 약의 수
+    		return new CONTAC600(c);
+    	}
+    	
+    	public void showPharmacist(){  //약사의 약의 수와 벌은 돈 상황 출력
+    		/*System.out.println("\n약사는 " + cnt + "개의 약이 남았고 "
+    	                       + money +"원의 돈을 벌었습니다.");*/
+    		
+    		System.out.println("\n"
+    				+"***************************************\n" 
+    				+ "약사\n" 
+    				+ "1. 남은 콘택600  : " + cnt + "개  \n" 
+					+ "2. 수입          : " + money +"원 \n"
+					+"***************************************\n" );
+    	}
+    }
+

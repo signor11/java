@@ -1,0 +1,33 @@
+package television;
+//실행용
+public class TelevisionTest {
+   
+    
+	public static void main(String[] args) {
+		
+		Television mytv=new Television();
+		
+		//mytv.onOff=true;//직접 접근
+		mytv.setOnOff(true);//간접 접근
+		
+		/*if(mytv.onOff==true) {
+			System.out.println( "제조회사는" + mytv.company + "이고" +
+			           			"채널은" + mytv.channel + "이고  " +
+			           			"볼륨은 "+ mytv.volume + "입니다.");
+		}*/
+		
+		Television yourtv=new Television("소니", 15, 30, true);	
+		
+		yourtv.channel=30; //직접 접근
+		
+		/*if(yourtv.onOff==true) {
+			System.out.println( "제조회사는" + yourtv.company + "이고" +
+			           			"채널은" + yourtv.channel + "이고  " +
+			           			"볼륨은 "+ yourtv.volume + "입니다.");
+		}*/
+		
+		
+
+	}
+
+}

@@ -1,0 +1,59 @@
+package television;
+
+public class Television {
+	final String company;        // 회사명. 클래스변수=참조변수(주소만) null
+	int channel; 	       // 채널 번호  . 일반변수       0
+	int volume; 	       // 볼륨                        0
+	boolean onOff; 	       // 전원 상태                   false
+	static int antena;     //클래스 변수
+	
+	//컴파일러가 자동으로 삽입. 기본생성자:필드를 초기화->객체생성
+	public Television(){
+		company=null;
+	} 
+	
+	Television(String company, int channel, int volume, boolean onOff) {
+		super();//부모생성자 호출->부모생성 후->
+		this.company = company; //자식의 필드를 초기화하여 자식 객체생성
+		this.channel = channel; //this:자기자신의 주소. 객체안에만 존재
+		this.volume = volume;   
+		this.onOff = onOff;
+    }
+	
+	int getChannel() {
+		return channel;
+	}
+
+	void setChannel(int channel) {
+		this.channel = channel;
+	}
+	
+	int getVolume() {
+		return volume;
+	}
+
+	void setVolume(int volume) {
+		this.volume = volume;
+	}
+
+	boolean isOnOff() {//is~() 메소드의 리턴값은 참 또는 거짓
+		return onOff;
+	}
+
+	void setOnOff(boolean onOff) {
+		this.onOff = onOff;
+	}
+
+	String getCompany() {
+		return company;
+	}
+
+	void print(){
+	  if(onOff==true){
+			System.out.println("TV 전원이 켜졌습니다.");
+			System.out.println("텔레비전의 제조회사는" + company + "이고" +
+		           "채널은" + channel + "이고  " +
+		           "볼륨은 "+ volume + "입니다.");
+	   }
+	}
+}

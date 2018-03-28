@@ -1,0 +1,66 @@
+package encap;
+
+import medicine.CONTAC600;
+import medicine.Pharmacist;
+
+class ColdPatient //감기환자
+{
+	int firstmoney;     //처음 가진 돈
+	int lastmoney;      //약 사고 남은 돈
+	int cnt=0;        //약 개수
+		
+	public ColdPatient(int money) {   //생성자
+		//super(); 생략하면 컴파일러가 자동으로 삽입 → 부모 생성자를 먼저 호출하여 부모 객체를 만든 후 
+		firstmoney = money;  //→ 자식 객체를 만든다.
+		lastmoney = money;
+	}
+	
+	CONTAC600 buyCONTAC600(Pharmacist pm, int money, int cnt){  //약사에게 돈을 주고 약을 산다.
+		CONTAC600 con=pm.saleCONTAC600(money, cnt);  //약사는 돈을 받고 약을 판다.
+		/*if(obj instanceof CONTAC600) 
+			con=(CONTAC600)obj;  */                    //강제형변환
+		lastmoney -= money;      
+		this.cnt += cnt;
+		return con;
+	}
+	
+	void takeCONTAC600(CONTAC600 cap){ //CONTAC600 먹기
+		cap.take(); 
+	}
+	
+	void showColdPatient(){   //감기환자의 현재 상태 출력
+		System.out.println("\n"
+				+"***************************************\n" 
+				+ "감기환자"
+				+ "1. 처음 가진 돈    : " + firstmoney + "원 \n" 
+				+ "2. 구입한 콘택600  : " + cnt + "개  \n" 
+				+ "3. 지출하고 남은 돈: " + lastmoney +"원 \n"
+				+"***************************************\n" );
+	}	
+}
+
+
+
+public class En
+{
+	public static void main(String args[])
+	{   
+		ColdPatient p = new ColdPatient(10000); //10000원 가진 환자 객체 생성하여 그 주소를 p에 저장
+		
+		Pharmacist pm = new Pharmacist(0,100,1000);  //돈은 없고 100개의 약을 가진 약사 객체 생성하여 그 주소를 pm에 저장
+		pm.menuExplain();
+		
+		int cnt = Sc.s.nextInt();  //약의 개수를 입력받기, static이므로 클래스명Sc.참조변수s
+	
+		/*CONTAC600 con=p.buyCONTAC600(pm, cnt*1000, cnt);   //주체:환자는 약사에게 약값을 주고 약개수만큼 약 사기
+		p.takeCONTAC600(con); //환자는 약을 받아 먹기
+                          */		
+			
+		p.takeCONTAC600(p.buyCONTAC600(pm, cnt*pm.CONTAC600_PRICE, cnt));
+		
+		System.out.println();      //빈줄
+		
+		p.showColdPatient();       //환자의 현재 상태 출력
+		pm.showPharmacist();       //약사의 현재 상태 출력
+	}
+}
