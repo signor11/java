@@ -1,0 +1,41 @@
+package box1;
+
+                                                           
+public class BoxTest {
+	public static void main(String[] args) {
+        /***생성자를 호출->객체 생성*******/
+		Box  b1 = new Box(); //기본 생성자 호출	
+		
+		/*System.out.println(b1.height);
+		System.out.println(b1.length);
+		System.out.println(b1.width);
+		System.out.println(b1.getColor());
+		//b1.maker="허강휘";
+		System.out.println(Box.maker);*/
+		b1.showSize();
+		System.out.println(b1);//toString()메소드가 자동 호출되어 문자열 생성
+		System.out.println(b1.toString());
+		
+		Box  b2 = new Box("빨강", 10, 20, 30);
+		
+		/*System.out.println(b2.height);
+		System.out.println(b2.length);
+		System.out.println(b2.width);
+		System.out.println(b2.getColor());
+		System.out.println(Box.maker);*/
+		b2.showSize();
+		
+		Box  b3 = new Box(50,70);
+		System.out.println(b3.height);
+		System.out.println(b3.length);
+		System.out.println(b3.width);
+		System.out.println(b3.getColor());//null
+		System.out.println(Box.maker);
+		
+		b3.setColor("초록");
+		//System.out.println(b3.color);     //직접 접근
+		System.out.println(b3.getColor());//간접 접근
+		
+		
+	}
+}
