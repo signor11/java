@@ -1,0 +1,32 @@
+package fruit;
+//클래스- 라이브러리용
+public class Buyer { //구매자
+	public int nofApple;    //사과수
+	public int money;       //돈  
+	
+	/**생성자:반환형없다. 클래스명과 이름이 같다().
+	 * 역할:필드를 초기화하고 객체를 생성
+	 * 객체안에는 생성자 없음(객체를 생성하여 메모리에 올리는 역할만 하므로)
+	 */
+	public Buyer(int nofApple, int money) {
+		super();  //반드시 첫줄에. 슈퍼=부모(Object)생성자를 호출->부모객체 먼저 생성
+		this.nofApple = nofApple;//this:객체안에만. 자기자신의 주소
+		this.money = money; //필드명=매개변수명
+	}
+	
+	                     //구매자가 주체가 되어 구매를 하면 판매자가 판매를 한다.	
+	public void buy(Seller s, int money){ 
+		nofApple += s.sale(money);        //구매자의 사과수+돈 주고 산 사과수
+		this.money -= money;              //구매자의 돈-사과를 산 돈
+	}
+		
+	public void showBuy(){
+		System.out.println("가진 사과:"+ nofApple);
+		System.out.println("현재 잔액:"+ money);
+	}
+	
+	/*public void access(Seller s){
+		s.money = 0; //구매자 측에서 판매자의 돈을 마음대로 수정
+		//이렇게 되면 안됨. 따라서 판매자의 필드의 정보를 보안해줘야 함
+	}*/
+}

@@ -1,0 +1,45 @@
+package fruit;
+
+/**
+ * 클래스 = 필드(클래스의 속성) + 메소드(클래스의 기능)
+ * 
+ */
+
+//클래스- 라이브러리용(main() 없다). public 클래스임
+public class Seller { 
+	private int nofApple; //사과수
+	private int money;    //돈                       
+	
+	public final int APPLE_PRICE; //final : 값 수정 불가.             
+	                                    //static 공유:객체안에 존재하지 않음
+	                                    //final static : 상수(객체안에 존재x, 공유&값변경 불가)
+	
+	/**생성자:반환형 없다   클래스명과 이름이 같다() .
+	 * 역할:필드를 초기화하고 객체를 생성
+	 * 객체안에는 생성자 없음
+	 * ******/
+	
+	public Seller(int nofApple, int money, int aPPLE_PRICE) {
+		super();//반드시 첫줄에. 먼저, 부모 생성자를 호출->부모 객체 생성
+		this.nofApple = nofApple;//자신의 필드에 초기값을 주어 객체 생성
+		this.money = money; //this:자기자신의 주소. 객체내에 존재함
+		APPLE_PRICE = aPPLE_PRICE;
+	}
+
+	public int sale(int money){    //4000의 돈을 받아
+		int n = money/APPLE_PRICE; //4000/1000=4 사과수
+		this.money = this.money+money;       //판매자의 돈+4000
+		nofApple -= n;             //판매자의 사과수-n
+		return n;                  //4개를 구매자한테 준다
+	}	
+	
+	public void showSale(){ //판매자의 현재 상황
+		System.out.println("남은 사과:"+ nofApple);
+		System.out.println("판매 수익:"+ money);
+	}
+}
+	
+	
+	
+	
+
