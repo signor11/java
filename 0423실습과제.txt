@@ -1,0 +1,97 @@
+package 연습;
+
+import java.util.Calendar;
+import java.util.Scanner;
+
+/*
+ * 
+ * 자바로 캘린더 만들기 연습
+ */
+public class CalendarPrac {
+
+	public static void main(String[] args) {
+		
+		
+		/*Calendar cal = Calendar.getInstance();
+		
+		int year = cal.get(Calendar.YEAR);
+		int mon = cal.get(Calendar.MONTH);
+		
+		int today = cal.get(Calendar.DATE);
+		
+		
+		cal.set(Calendar.DATE,1);
+		int day = cal.get(Calendar.DAY_OF_WEEK);
+		
+				
+				System.out.println("\t\t"+year+"년\t" +" "+ (mon+1) + "월   달력");
+				System.out.println("일\t월\t화\t수\t목\t금\t토\t");
+				for(int i=1;i<=cal.getActualMaximum(Calendar.DAY_OF_MONTH);i++){
+					System.out.print(i+"\t");
+					if(i%7==0)System.out.println();
+					
+				}
+				System.out.println();
+				Calendar c = Calendar.getInstance();
+				Scanner sc = new Scanner(System.in);	
+				System.out.println("달력해당 월을 입력하세요.");
+				int month = sc.nextInt();
+				c.set(Calendar.MONTH, month-1);
+				c.set(Calendar.DAY_OF_MONTH,1);
+				int dayofweek = c.get(Calendar.DAY_OF_WEEK);
+				
+				int j;
+				System.out.println("\t\t"+year+"년\t" +" "+ (month) + "월   달력");
+				System.out.println("일\t월\t화\t수\t목\t금\t토\t");
+				System.out.println(dayofweek);
+				for(j=0;j<dayofweek-1 ; j++) {
+					System.out.print("\t");
+					
+				}
+				for(int day2 =1; day2<=c.getActualMaximum(Calendar.DAY_OF_MONTH);day2++,j++) {
+					if(j%7 == 0) {
+						System.out.println();
+					}
+					System.out.print(day2 + "\t");
+				}
+				*/
+		
+		Calendar calen = Calendar.getInstance();
+		Scanner scn = new Scanner (System.in);
+		System.out.println("찾고자 하는 연도를 입력하세요");
+		int inyear = scn.nextInt();
+		calen.set(Calendar.YEAR,inyear);
+		
+	    int i ;
+	    	  
+	    for(i = 1; i<=12;i++) {
+			System.out.println("\t\t"+inyear+"년\t" +" "+i + "월   달력");
+			System.out.println();
+			System.out.println("일\t월\t화\t수\t목\t금\t토\t");
+			System.out.println("==================================================");
+		   
+		int month = i;
+		calen.set(Calendar.MONTH, month-1);
+		calen.set(Calendar.DAY_OF_MONTH,1);
+		int dayofweek = calen.get(Calendar.DAY_OF_WEEK);
+		int j;  
+		
+		for(j=0;j<dayofweek-1 ; j++) {
+			System.out.print("\t");
+			
+		}
+		for(int day =1; day<=calen.getActualMaximum(Calendar.DAY_OF_MONTH);day++,j++) {
+			if(j%7 == 0) {
+				System.out.println();
+			}
+			System.out.print(day+ "\t");
+			
+		}
+		System.out.println();
+		System.out.println();
+	    }
+				
+				
+	}
+
+}
