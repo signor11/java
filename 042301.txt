@@ -1,0 +1,35 @@
+package wrap;
+/*
+ * 주석은 중요하다
+ * 
+ * String -> 기본데이터 형으로 변환
+ * 기본데이터 형으로 변환  -> String 변환
+ * 
+ * 
+ * 
+ */
+public class StringConv {
+
+	public static void main(String[] args) {
+		
+		String a = "100";
+		
+		int i = Integer.parseInt(a);
+		
+		
+		long l = Long.parseLong(a);
+		
+		
+		double d = Double.parseDouble(a);
+		
+		a = Integer.toString(i);
+		a = Long.toString(l);
+		a = Double.toString(d);
+
+		
+		
+		
+		
+	}
+
+}
