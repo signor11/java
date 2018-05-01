@@ -1,0 +1,82 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>baseball game</title>
+</head>
+<body>
+ <h1>BASE BALL GAME!</h1>
+
+<input type = "text" id = "in1" />
+<input type = "text" id = "in2" />
+<input type = "text" id = "in3" />
+<input type = "button" onclick = "gamecheck()" value="확인"/>
+
+<br><br>
+<p id="show"></p>
+<p id="count"></p>
+<div id="result"></div>
+<script>
+ //난수 3개랑 입력값 3개 를 비교해서
+
+ //strike, ball 카운터를 div에 출력
+ //입력 횟수 증가
+ //입력횟수가 10회 이상 게임오버
+var arr=[];
+var cnt =0;
+for(i=0;i<3;i++){
+	arr[i] = Math.floor(Math.random()*9)+1;
+		
+}
+document.getElementById("show").innerHTML = "정답 : " + arr; 
+
+ function gamecheck(){
+	 var strike=0;
+	 var ball=0;
+	 
+	 if (arr[0] == document.getElementById("in1").value)
+		 strike++;
+	 else if(arr[1] == document.getElementById("in1").value)
+		 ball++;
+	 else if (arr[2] == document.getElementById("in1").value)
+		 ball++;
+	 if (arr[1] == document.getElementById("in2").value)
+		 strike++;
+	 else if(arr[0] == document.getElementById("in2").value)
+		 ball++;
+	 else if (arr[2] == document.getElementById("in2").value)
+		 ball++;
+	 if (arr[2] == document.getElementById("in3").value)
+		 strike++;
+	 else if(arr[0] == document.getElementById("in3").value)
+		 ball++;
+	 else if(arr[1] == document.getElementById("in3").value)
+		 ball++;
+	
+ var input1 = document.getElementById("in1").value;
+ var input2 = document.getElementById("in2").value;
+ var input3 = document.getElementById("in3").value;
+ document.getElementById("result").innerHTML+="strike" +strike+"ball"+ball+"<br>"+" 입력1 : "+input1+" 입력2 : "+input2+" 입력3 : "+input3 +"<br>";
+ cnt++;
+ document.getElementById("count").innerHTML ="횟수" + cnt +"<br>";
+if(strike==3){
+	alert("승리")}
+if(cnt>10){
+	alert("게임오버")
+	
+}
+ }
+ //난수 3개랑 입력값 3개 를 비교해서
+   
+ //}
+ //if (document.getElementById("num1").value==a[0])s++
+ //else if (document.getElementById("num1").value==a[1])b++
+ //strike, ball 카운터를 div에 출력
+ //입력 횟수 증가
+ //입력횟수가 10회 이상 게임오버
+
+ 
+ </script> 
+</body>
+</html>
